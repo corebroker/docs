@@ -14,15 +14,18 @@
         "tab": "Guides",
         "menu": [
           {
-            "item": "Getting started",
+            
+          }
+        ],
+        "groups": [
+          {
+          "group": "Getting started",
             "pages": [
               "index",
               "quickstart",
               "development"
             ]
-          }
-        ],
-        "groups": [
+          },
           {
             "group": "Documentation",
             "pages": [
