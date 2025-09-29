@@ -46,13 +46,13 @@ This guide explains how to **purchase** proxy plans on Quantum Proxies and how t
 
       Once you have an active Residential plan, you’ll see it listed under **Dashboard → Generation → Residential**.
 
-      <u>1. Select your plan</u>
+      1. Select your plan
 
       - All your Residential plans are shown in cards.
       - Each card displays **remaining bandwidth** and **used bandwidth**.
       - Click the plan you want to use for generation.
 
-      2. <u>Configure proxy generation</u>
+      2. Configure proxy generation
 
       Below the plan list you’ll find the **Generate Residential Proxies** section.
 
@@ -65,10 +65,9 @@ This guide explains how to **purchase** proxy plans on Quantum Proxies and how t
         - _Sticky_: IP stays the same for a set duration (e.g. 5m, 30m, 1h).
       - **Quantity** → How many proxies you want to generate in one batch.
 
-      3. <u>Generate & copy</u>
+      3. Generate & copy
 
-      Once you’ve configured the settings:
-
+      - Once you’ve configured the settings:
       - Click **Generate Proxy**.
       - Your proxies will appear in the **Proxy List** panel on the right side.
       - From there, you can:
@@ -103,54 +102,53 @@ In both cases, your Dashboard keeps you informed of your remaining resources and
   if your business requires higher volumes, custom plans, or SLAs, our sales team ([team@quantumproxies.net](mailto:team@quantumproxies.net)) is available to design a solution tailored to your needs.
 </Tip>
 
-## Troubleshooting
+## Payment Methods
 
-\*\*1. ****`403or ** 407(authentication error)`****
+<AccordionGroup>
+  <Accordion title="Stripe" icon="credit-card">
+    The fastest and most common option.
 
-- Verify credentials (username/password) are correct.
-- If using IP whitelist, confirm the request originates from an authorized IP.
-- Ensure the proxy session type (sticky vs rotating) matches the credential type issued.
+    Pay securely with **credit or debit cards** directly through our Dashboard.  \
+    Your plan activates instantly once payment is confirmed.
+  </Accordion>
+  <Accordion title="Cryptocurrency" icon="bitcoin-sign">
+    Prefer paying with crypto? We’ve got you covered.
 
-**2. No proxies returned after Generate (API)**
+    Supported coins include **Bitcoin, Ethereum, USDT, and more**.  \
+    Payments are handled by **Cryptomus**, and plans activate as soon as the transaction is confirmed.
+  </Accordion>
+  <Accordion title="Bank Transfer" icon="piggy-bank">
+    Available for larger purchases:
 
-- Ensure your plan has sufficient allocation or balance.
-- Confirm that `quantity` requested does not exceed plan limits.
-- Check API key permissions (the key must allow generation actions).
+    - **One-time buys:** from **\$500**
+    - **Subscriptions:** from **\$1,000**
 
-**3. High latency or timeouts**
+    If you want to pay by bank transfer, [contact our support team](/essentials/code).\
+    We’ll provide you with the banking details and guide you through the process.
+  </Accordion>
+</AccordionGroup>
 
-- Choose a different region or datacenter.
-- Verify the product type (datacenter for lowest latency).
-- Check for rate-limiting or temporary network issues.
-
-**4. Billing / purchase not active**
-
-- Verify Stripe or payment method status and transaction success.
-- Allow a short processing window for some payment methods to clear.
-- Contact support with transaction id if your plan remains inactive after payment.
+No matter which method you choose, all payments are processed securely and linked to your account. As soon as your payment clears, your proxies will be ready to use.
 
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
-    This may be due to an outdated version of node. Try the following:
-
-    1. Remove the currently-installed version of the CLI: `npm remove -g mint`
-    2. Upgrade to Node v19 or higher.
-    3. Reinstall the CLI: `npm i -g mint`
+  <Accordion title="No proxies returned after Generate">
+    - Ensure your plan has sufficient allocation or balance.
+    - Confirm that `quantity` requested does not exceed plan limits.
+    - Make sure every generation field is filled before click "Generate" button.
   </Accordion>
-  <Accordion title="Issue: Encountering an unknown error">
-    Solution: Go to the root of your device and delete the `~/.mintlify` folder. Then run `mint dev` again.
+  <Accordion title="High latency or timeouts">
+    - Choose a different region or datacenter.
+    - Verify the product type (datacenter for lowest latency).
+    - Check for rate-limiting or temporary network issues.
+  </Accordion>
+  <Accordion title="Billing / purchase not active">
+    - Verify Stripe or payment method status and transaction success.
+    - Allow a short processing window for some payment methods to clear.
+    - Contact support with transaction id if your plan remains inactive after payment.
   </Accordion>
 </AccordionGroup>
-
-## Payment Methods
-
-We support a variety of payment methods including:
-
-- All major cards
-- Cryptocurrencies (via Bitpay and Coingate)
-- ACH, Wire and UK BACs payments for purchase orders or store credit top-ups over \$1,00
 
 ## Support
 
