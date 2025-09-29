@@ -1,0 +1,110 @@
+---
+title: "Buy & Generate Proxies"
+description: "Follow the steps below to buy a plan, activate it, and obtain proxy you can use right away"
+---
+
+This guide explains how to **purchase** proxy plans on Quantum Proxies and how to **generate** usable proxy credentials (residential, datacenter, mobile, rotating or sticky) from the Dashboard and via the API.
+
+## Short workflow (high-level)
+
+<Steps>
+  <Step title="Sign in to the Dashboard.  ">
+    You need to have an active account created.
+
+    <Card title="Create your account" icon="person-circle-plus" color="#ffffff">
+      
+    </Card>
+  </Step>
+  <Step title="Select or purchase a proxy plan.  ">
+    Choose the product type: **Residential**, **Datacenter**, or **ISP**
+
+    ![image.png](/images/image.png)
+  </Step>
+  <Step title="Pay">
+    Click **Buy** (or **Top Up**) and complete payment using the available payment methods.  \
+    We support Stripe for card payments and Cryptomus for cryptocurrency payments.
+  </Step>
+  <Step title="Generate proxies">
+    Go to **Dashboard → Generation → ISP & Datacenter / Residential**  
+
+    <Accordion title="ISP & Datacenter" icon="computer-classic">
+      Unlike Residential or Mobile proxies, you don’t need to manually generate ISP or Datacenter proxies.  
+
+      As soon as your payment is confirmed, your ISP/Datacenter proxies will automatically appear in the ISP/Datacenter section of your Dashboard. You can access them immediately, no extra steps required.  
+
+      From the Dashboard, you can:
+
+      - **Download all proxies** as a `.txt` file for bulk usage.  
+      - **Copy proxies directly to your clipboard** for quick setup in your tools or scripts.  
+
+      ISP/Datacenter proxies are dedicated and static, so once purchased they are instantly provisioned to your account.  No configuration or generation logic is needed, you simply buy and start using them.
+    </Accordion>
+    <Accordion title="Residential" icon="house-blank">
+      
+    </Accordion>
+  </Step>
+</Steps>
+
+## Billing & limits
+
+- Generated proxies deduct from your plan allocation or balance immediately.
+- Check **Dashboard → Usage** to monitor bandwidth, concurrent connections and remaining credits.
+- Rate limits on API endpoints may apply; consult **API → Rate Limits**.
+- For high-volume needs, contact sales for custom plans and SLAs.
+
+## Troubleshooting
+
+**1. **`403`**or ** `407`**(authentication error)** 
+
+- Verify credentials (username/password) are correct.
+- If using IP whitelist, confirm the request originates from an authorized IP.
+- Ensure the proxy session type (sticky vs rotating) matches the credential type issued.
+
+**2. No proxies returned after Generate (API)**
+
+- Ensure your plan has sufficient allocation or balance.
+- Confirm that `quantity` requested does not exceed plan limits.
+- Check API key permissions (the key must allow generation actions).
+
+**3. High latency or timeouts**
+
+- Choose a different region or datacenter.
+- Verify the product type (datacenter for lowest latency).
+- Check for rate-limiting or temporary network issues.
+
+**4. Billing / purchase not active**
+
+- Verify Stripe or payment method status and transaction success.
+- Allow a short processing window for some payment methods to clear.
+- Contact support with transaction id if your plan remains inactive after payment.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
+    This may be due to an outdated version of node. Try the following:
+
+    1. Remove the currently-installed version of the CLI: `npm remove -g mint`
+    2. Upgrade to Node v19 or higher.
+    3. Reinstall the CLI: `npm i -g mint`
+  </Accordion>
+  <Accordion title="Issue: Encountering an unknown error">
+    Solution: Go to the root of your device and delete the `~/.mintlify` folder. Then run `mint dev` again.
+  </Accordion>
+</AccordionGroup>
+
+## Payment Methods
+
+We support a variety of payment methods including:
+
+- All major cards
+- Cryptocurrencies (via Bitpay and Coingate)
+- ACH, Wire and UK BACs payments for purchase orders or store credit top-ups over \$1,00
+
+## Support
+
+If you encounter any issues while buying or generating proxies:
+
+- Consult **Dashboard → Support** for ticket submission.
+- Visit **Docs → Troubleshooting** for common errors.
+- Contact support via **Discord** or [**support@quantumproxies.com**](mailto:support@quantumproxies.com) (or your configured contact channels).
