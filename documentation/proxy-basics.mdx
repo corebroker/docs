@@ -1,5 +1,80 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Proxy Basics"
+description: "Proxies are the foundation of everything you’ll be doing with Quantum Proxies.   This page explains what a proxy is, why you might use one, the types available, and the protocols we support. "
 ---
 
+## What is a Proxy?
+
+A proxy is an intermediary server that sits between your device and the internet. Instead of connecting directly to a website, your traffic is routed through a proxy first. This hides your real IP address and replaces it with one provided by Quantum Proxies.
+
+<Tip>
+  **In simple terms:**
+
+  You → Proxy → Target Website
+</Tip>
+
+## Why Use Proxies?
+
+Proxies provide three main benefits:
+
+- **Anonymity** → Hide your real IP address from websites and services.
+- **Access** → Appear as if you’re connecting from another country or region.
+- **Stability** → Reduce blocks and captchas when scraping or automating requests.
+
+They’re widely used for tasks like price monitoring, ad verification, sneaker bots, SEO, research, and bypassing geo-restrictions.
+
+## Types of Proxies at Quantum Proxies
+
+We provide several proxy types, each designed for different use cases:
+
+### [Residential Proxies](/documentation/residential-proxies)
+
+IPs from real devices connected through consumer ISPs.
+
+- **Best for:** scraping, automation, ad verification.
+- **Key trait:** very hard to block because they look like normal users.
+
+### [Datacenter Proxies](/documentation/datacenter-proxies)
+
+High-speed IPs hosted in data centers.
+
+- **Best for:** bulk requests, ticketing, SEO monitoring.
+- **Key trait:** very low latency and stable connections.
+
+### [Static Residential (ISP Proxies)](/documentation/static-proxies)
+
+A hybrid of datacenter reliability and residential legitimacy.
+
+- **Best for:** long-running sessions that need “real” IPs.
+- **Key trait:** static residential IPs you can keep over time.
+
+### Mobile Proxies (optional if offered)
+
+Real IPs from 4G/5G mobile devices.
+
+- **Best for:** social media and mobile app automation.
+- **Key trait:** extremely trusted by websites, as they appear like regular phones.
+
+<Info>
+  Rotating vs Sticky Sessions
+
+  - **Rotating** → your IP changes automatically on each request or after a short period.
+  - **Sticky** → your IP remains the same for a defined session length (e.g., 5 minutes, 30 minutes, 1 hour).
+</Info>
+
+##  Supported Protocols
+
+All Quantum Proxies support the most common proxy protocols:
+
+- **HTTP / HTTPS** → works for most browsers, bots, and scripts.
+
+You can select the protocol in your application when connecting with the proxy credentials you generate.
+
+## Key Takeaways
+
+- A proxy routes your internet traffic through another IP address.
+- Quantum Proxies offers **Residential, Datacenter, ISP (Static Residential)**, and **Mobile** options.
+- Choose **rotating** proxies for scale and scraping, and **sticky** sessions when you need consistency.
+- Supported protocols are **HTTP, HTTPS, and SOCKS5 (Coming soon)**.
+
+---

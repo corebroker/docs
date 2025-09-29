@@ -26,7 +26,7 @@
             "pages": [
               "documentation/proxy-basics",
               "documentation/static-proxies",
-              "documentation/residential-proxies",
+              "documentation/residential/residential-proxies",
               "documentation/virtual-private-servers",
               "documentation/root-servers",
               "documentation/dedicated-servers"

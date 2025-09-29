@@ -1,0 +1,44 @@
+---
+title: "Troubleshooting Residential Proxies"
+description: "If you run into issues, here are common problems and how to fix them:"
+---
+
+<AccordionGroup>
+  <Accordion title="Proxies not generating" icon="sparkles">
+    - Ensure your plan still has bandwidth.
+    - Verify you selected a country and entered a quantity.
+  </Accordion>
+  <Accordion title="Bandwidth depleting too quickly" icon="sparkles">
+    - Some tools retry failed requests aggressively. Limit retries or add delays.
+    - Optimize your requests to avoid downloading unnecessary data.
+    - Never share your proxies with anyone
+  </Accordion>
+  <Accordion title="Connection slow or unstable" icon="sparkles">
+    - Try a different country for better routing.
+    - Rotate proxies if you’re seeing temporary blocks.
+  </Accordion>
+  <Accordion title="Proxy not working in a browser" icon="sparkles">
+    - Check if the proxy protocol matches your browser configuration (HTTP vs SOCKS5).
+    - Some browsers require `user:pass@ip:port` format — confirm you’re using the supported one.
+    - Try with a simple tool like `curl` first to confirm the proxy itself works.
+  </Accordion>
+  <Accordion title="Target website still blocking" icon="sparkles">
+    - Some sites use aggressive anti-bot protection. Try rotating proxies more often.
+    - Add **delays between requests** to mimic human browsing.
+    - Change your user-agent or use browser automation instead of raw HTTP requests.
+    - If a specific site is critical, consider upgrading to **ISP or Datacenter proxies** for static IP reliability.
+  </Accordion>
+  <Accordion title="Downloads not starting / proxies exporting empty file" icon="sparkles">
+    - Ensure you generated at least one proxy before clicking **Download**.
+    - Some browsers block automatic `.txt` downloads; check your browser’s downloads folder or settings.
+    - Use the **Copy** button as an alternative if downloads are restricted.
+  </Accordion>
+</AccordionGroup>
+
+Still stuck? Contact our support team via [**Discord**](https://discord.gg/Hhg94t6JRG) or [**team@quantumproxies.com**](mailto:team@quantumproxies.com) and provide:
+
+- Your account email
+- The proxy type and format you’re using
+- Example request + error message
+
+This will help us troubleshoot your issue faster.
