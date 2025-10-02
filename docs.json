@@ -21,10 +21,9 @@
             "group": "Documentation",
             "pages": [
               "documentation/proxy-basics",
-              "documentation/static-proxies",
-
               {
                 "group": "Residential Proxies",
+                "icon": "Home",
                 "pages": [
                   "documentation/residential/residential-proxies",
                   "documentation/residential/billing",
@@ -32,7 +31,14 @@
                   "documentation/residential/troubleshoot"
                 ]
               },
-
+              { 
+                "group": "Static Proxies",
+                "icon": "Server",
+                "pages": [
+                  "documentation/static-proxies/datacenter-proxies",
+                  "documentation/static-proxies/isp-proxies"
+                ]
+              },              
               "documentation/virtual-private-servers",
               "documentation/root-servers",
               "documentation/dedicated-servers"
