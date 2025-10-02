@@ -19,11 +19,12 @@
           },
           {
             "group": "Documentation",
+            "icon": "Book",
             "pages": [
               "documentation/proxy-basics",
               {
                 "group": "Residential Proxies",
-                "icon": "Home",
+                "icon": "Building",
                 "pages": [
                   "documentation/residential/residential-proxies",
                   "documentation/residential/billing",
