@@ -2,7 +2,11 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Quantum Proxies",
-  "colors": { "primary": "#2A71F5", "light": "#2A71F5", "dark": "#2A71F5" },
+  "colors": {
+    "primary": "#2A71F5",
+    "light": "#2A71F5",
+    "dark": "#2A71F5"
+  },
   "favicon": "/favicon.webp",
   "navigation": {
     "tabs": [
@@ -32,57 +36,24 @@
                   "documentation/residential/troubleshoot"
                 ]
               },
-              { 
+              {
                 "group": "Static Proxies",
                 "icon": "Server",
                 "pages": [
                   "documentation/static-proxies/datacenter-proxies",
                   "documentation/static-proxies/isp-proxies"
                 ]
-              },              
+              },
               "documentation/virtual-private-servers",
               "documentation/root-servers",
               "documentation/dedicated-servers"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
             ]
           }
         ]
       },
       {
         "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
+        "groups": []
       }
     ],
     "global": {}
@@ -95,13 +66,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:team@quantumproxies.net"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://dash.quantumproxies.net"
     }
   },
   "contextual": {
@@ -118,7 +89,7 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify"
+      "x": "https://x.com/quantum_proxies"
     }
   }
 }
