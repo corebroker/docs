@@ -43,10 +43,7 @@
                   "documentation/static-proxies/datacenter-proxies",
                   "documentation/static-proxies/isp-proxies"
                 ]
-              },
-              "documentation/virtual-private-servers",
-              "documentation/root-servers",
-              "documentation/dedicated-servers"
+              }
             ]
           }
         ]
