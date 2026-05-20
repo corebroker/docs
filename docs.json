@@ -43,30 +43,6 @@
                   "documentation/static-proxies/datacenter-proxies",
                   "documentation/static-proxies/isp-proxies"
                 ]
-              },
-              "documentation/server-basics",
-              {
-                "group": "Virtual Private Servers",
-                "icon": "Microchip",
-                "pages": [
-                  "documentation/virtual-private-servers/overview",
-                  "documentation/virtual-private-servers/buying",
-                  "documentation/virtual-private-servers/managing",
-                  "documentation/virtual-private-servers/backups",
-                  "documentation/virtual-private-servers/billing",
-                  "documentation/virtual-private-servers/troubleshoot"
-                ]
-              },
-              {
-                "group": "Dedicated Servers",
-                "icon": "database",
-                "pages": [
-                  "documentation/dedicated-servers/overview",
-                  "documentation/dedicated-servers/buying",
-                  "documentation/dedicated-servers/managing",
-                  "documentation/dedicated-servers/billing",
-                  "documentation/dedicated-servers/troubleshoot"
-                ]
               }
             ]
           }
