@@ -1,0 +1,98 @@
+---
+title: "Managing your Dedicated Server"
+description: "Power actions, web console, password reset, and OS reinstall — all from the Dashboard."
+---
+
+Once your dedicated server is active, head to **Dashboard → Servers** and click it to open the management panel.
+
+{/* SCREENSHOT: Dashboard → Servers → opened dedicated server detail page */}
+
+## Power actions
+
+You can control the state of your server with one click:
+
+- **Start** — power on a stopped server.
+- **Reboot** — graceful restart.
+- **Stop** — shut it down (the server stays reserved and billed).
+- **Force stop** — only when the server is unresponsive; equivalent to pulling the power cable.
+
+{/* SCREENSHOT: Dedicated server detail → Power action buttons */}
+
+<Warning>
+  **Force stop** can corrupt the file system. Use it only when a clean shutdown doesn't work.
+</Warning>
+
+## Web console (KVM / IPMI)
+
+If you ever get locked out via SSH or RDP — bad firewall rule, broken sshd config, anything — the web console lets you interact with the server as if you were physically plugged in.
+
+Click **Open Console** from the server detail page.
+
+{/* SCREENSHOT: Dedicated server detail → "Open Console" button + opened console window */}
+
+<Tip>
+  The console is the safest recovery tool. If anything goes wrong with networking, SSH, or RDP, you can almost always fix it from here.
+</Tip>
+
+## Reset password
+
+Forgot your root / Administrator password? Reset it from the Dashboard:
+
+<Steps>
+  <Step title="Open the server">
+    From **Dashboard → Servers**, click the dedicated server you want to reset.
+  </Step>
+  <Step title="Click 'Reset Password'">
+    Enter a new password.
+
+    {/* SCREENSHOT: Dedicated server detail → Reset Password dialog */}
+  </Step>
+  <Step title="Done">
+    The new password is applied within seconds. Use it to log in via SSH (Linux) or RDP (Windows).
+  </Step>
+</Steps>
+
+## OS Reinstall
+
+You can reinstall the OS on your dedicated server at any time — useful if you want to start from a clean slate or switch operating systems.
+
+<Warning>
+  Reinstalling **wipes all data** on the server. Back up anything you need to keep before triggering it.
+</Warning>
+
+<Steps>
+  <Step title="Open the server detail page">
+    From **Dashboard → Servers**, click your dedicated server.
+  </Step>
+  <Step title="Click 'Reinstall OS'">
+    Pick the OS you want and set a new password.
+
+    {/* SCREENSHOT: Dedicated server detail → Reinstall OS dialog */}
+  </Step>
+  <Step title="Wait">
+    Reinstall typically takes 10–20 minutes. The server status switches to **Reinstalling…** during the process and back to **Active** when done.
+  </Step>
+</Steps>
+
+## Resource usage
+
+The detail panel shows live metrics for CPU, RAM, disk, and network so you can monitor your server's health.
+
+{/* SCREENSHOT: Dedicated server detail → resource usage charts */}
+
+## Connecting to your server
+
+### Linux
+
+```bash
+ssh root@<your-server-ip>
+# or the user shown in your Dashboard connection details
+```
+
+### Windows Server
+
+Use **Remote Desktop (RDP)** with the IP and the `Administrator` credentials shown in the Dashboard.
+
+## Hardware swaps / upgrades
+
+If you need a hardware change (more RAM, additional disks, different NIC, dedicated IP range), [contact us](mailto:team@quantumproxies.net). We'll arrange a maintenance window and quote the change.

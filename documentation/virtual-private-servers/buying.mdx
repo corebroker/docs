@@ -1,0 +1,84 @@
+---
+title: "Buying a VPS"
+description: "Order a VPS in a few clicks. Provisioning is automatic — your machine is ready in roughly 1–2 minutes after payment."
+---
+
+<Steps>
+  <Step title="Go to the Servers shop">
+    From the Dashboard, open **Shop → Servers**.
+
+    You'll see all available VPS plans (Plank, Broglie, Einstein) and the dedicated server line-up.
+
+    {/* SCREENSHOT: Dashboard → Shop → Servers (overview of all server plans) */}
+  </Step>
+  <Step title="Pick a plan">
+    Click the plan you want to buy. You'll land on the configuration page where you choose every detail of the machine.
+
+    {/* SCREENSHOT: Dashboard → Shop → Servers → single VPS plan detail page (e.g. Plank) */}
+  </Step>
+  <Step title="Configure your VPS">
+    On the detail page you can choose:
+
+    - **Billing period** — 1 month, 3 months, or 6 months. Longer periods come with a discount.
+    - **Operating system** — Ubuntu 24, Ubuntu 25, Debian 12, Debian 13, or Windows Server 2022.
+    - **Hostname** — a label for your VM (you can leave the default).
+    - **Extra IPs** — add up to 8 additional public IPv4 addresses at **\$1.45/IP/month**.
+    - **Automatic backups** — opt in to weekly snapshots (**\$5 / month**, optional).
+
+    {/* SCREENSHOT: Dashboard → Shop → Servers → VPS configuration form (showing OS picker, extra IPs selector, backups toggle) */}
+
+    <Tip>
+      You don't need to choose a password here — we **auto-generate a secure random password** for your VPS during provisioning. It will be shown to you in the Dashboard once the VPS is ready. You can change it any time via **Reset Password**.
+    </Tip>
+  </Step>
+  <Step title="Pay">
+    Click **Buy** and complete payment. We accept:
+
+    - **Stripe** — credit / debit card, instant.
+    - **Cryptomus** — Bitcoin, Ethereum, USDT and more.
+
+    Once payment is confirmed, provisioning starts automatically.
+  </Step>
+  <Step title="Wait \~1–2 minutes">
+    Your VPS appears immediately in **Dashboard → Servers** with a **Building…** status while we install the OS and configure networking.
+
+    {/* SCREENSHOT: Dashboard → Servers — VPS card showing the "Building…" state */}
+
+    As soon as it's ready, the status flips to **Active** and you can connect.
+  </Step>
+  <Step title="Connect">
+    Once your VPS is active, click it from **Dashboard → Servers** to see:
+
+    - The public **IP address**.
+    - Your **username** (`ubuntu`, `debian`, or `Administrator` for Windows).
+    - The **auto-generated password** for the initial login (you can copy it from the Dashboard, or change it any time via **Reset Password**).
+    - SSH (Linux) / RDP (Windows) connection details.
+
+    {/* SCREENSHOT: Dashboard → Servers → opened VPS detail (showing IP, username, initial password, and the action panel) */}
+  </Step>
+</Steps>
+
+## What happens behind the scenes
+
+Right after payment, our system:
+
+1. Reserves a free IP for your machine.
+2. Clones a fresh copy of your chosen OS.
+3. Generates a secure random password and applies your hostname and network configuration.
+4. Boots the machine and verifies it's reachable.
+
+The whole flow is automatic — you don't need to do anything between paying and connecting.
+
+## Troubleshooting purchase issues
+
+<AccordionGroup>
+  <Accordion title="My VPS is stuck on 'Building…'" icon="sparkles">
+    Building usually completes in 1–2 minutes. If it's been more than 10 minutes, refresh the Dashboard. Our system automatically detects stuck builds and recovers them within a few minutes. If the issue persists, contact support with your order ID.
+  </Accordion>
+  <Accordion title="Payment went through but I don't see a VPS" icon="sparkles">
+    Refresh the Dashboard once — provisioning kicks off the moment payment is confirmed. If nothing appears after a few minutes, [contact support](mailto:team@quantumproxies.net) with your payment reference and we'll trace it.
+  </Accordion>
+  <Accordion title="I can't connect with my password" icon="sparkles">
+    Reset it directly from the Dashboard. See [Managing your VPS](/documentation/virtual-private-servers/managing) for the steps.
+  </Accordion>
+</AccordionGroup>

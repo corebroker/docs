@@ -1,0 +1,108 @@
+---
+title: "Server Basics"
+description: "Servers give you a real, always-on machine on the internet — with low latency to your target websites, more bandwidth than your home connection, and the freedom to install whatever you need."
+---
+
+## What is a Server?
+
+A server is a computer that runs 24/7 on a high-speed connection in a datacenter. You connect to it remotely (via SSH for Linux, RDP for Windows) and use it exactly like your own laptop — except it's always on, has a fixed public IP, and is engineered for performance and uptime.
+
+<Tip>
+  **In simple terms:**
+
+  Your laptop → Internet → Your Quantum Server → Target Website
+</Tip>
+
+We offer two types of servers:
+
+- **Virtual Private Server (VPS)** — a virtual machine running on shared physical hardware, with guaranteed CPU, RAM, and disk allocated to your VM.
+- **Dedicated Server** — a full physical machine, with all hardware reserved for you alone.
+
+## Why Use a Server?
+
+Running your workload on a Quantum server, instead of your own laptop, gives you four big advantages:
+
+### 1. Better connectivity & lower latency
+
+Our servers sit in **Frankfurt, Germany** — one of the largest internet exchange points in Europe (DE-CIX). That means:
+
+- **Low ping** to most major websites and APIs (sneaker sites, social platforms, marketplaces, ticketing).
+- **Stable peering** with the big carriers — fewer packet drops than a residential connection.
+- **Symmetric 10 Gbps uplinks** — your home fibre is fast on downloads, but a server's upload speed is what matters for automation and scraping.
+
+In practice, a request that takes 200ms from your laptop in a different country can take 20–40ms from one of our servers. Across thousands of requests, that adds up to a much faster and more reliable workflow.
+
+### 2. Always on
+
+Your laptop sleeps. Your home Wi-Fi drops. Power goes out. None of that matters when your workload runs on a server — it just keeps going. Cron jobs, scrapers, bots, Discord automations, monitoring tasks: they all run continuously, even when you close your laptop.
+
+### 3. Real resources, separated from your daily work
+
+Heavy automation (multiple browser instances, large datasets, parallel scrapers) chews through CPU and RAM. Running them on your daily machine means your laptop slows down and burns out faster. A Quantum server takes that load off your hands.
+
+### 4. A static, professional identity
+
+Your home IP changes, gets flagged by anti-bot systems, and ties everything you do to your real location. A server gives you a **clean, stable public IP** — often the foundation that proxies, accounts, and automations sit on top of.
+
+## Common Use Cases
+
+People typically use Quantum servers for:
+
+- **Sneaker / ticketing bots** — proximity to drop sites + always-on uptime.
+- **Web scraping & crawling at scale** — many parallel workers without melting your laptop.
+- **Discord bots and automation** — needs 24/7 uptime; a server is the standard pick.
+- **Account farming & management** — stable IP identity for long-lived sessions.
+- **Hosting personal services** — VPNs, dashboards, internal tools, small APIs.
+- **Game servers** — Minecraft, Rust, CS, and similar self-hosted games.
+- **Trading bots & market monitoring** — low latency to exchanges and feeds matters.
+- **Development & testing environments** — a clean, isolated machine you can break and rebuild.
+
+## VPS or Dedicated — How to Choose
+
+<Columns cols={2}>
+  <Card title="Pick a VPS if…" icon="microchip" color="#025bff" href="/documentation/virtual-private-servers/overview">
+    You want it ready in 2 minutes, a predictable monthly price, and the freedom to upgrade later. Great for most workloads up to medium scale.
+  </Card>
+  <Card title="Pick a Dedicated server if…" icon="database" color="#025bff" href="/documentation/dedicated-servers/overview">
+    You need maximum raw performance, no shared cores, or specific hardware features (lots of RAM, fast single-thread CPU, large disks).
+  </Card>
+</Columns>
+
+A simple rule of thumb:
+
+| Need                                                           | Pick           |
+| -------------------------------------------------------------- | -------------- |
+| Spin up fast, can resize later, light-to-medium load           | **VPS**        |
+| Heavy sustained load, no noisy neighbors, full hardware access | **Dedicated**  |
+| Tightest budget                                                | **VPS Plank**  |
+| Maximum performance per dollar at the top end                  | **Dedicated**  |
+
+## What's Included with Every Server
+
+Every Quantum server, VPS or dedicated, comes with:
+
+- **Full root / Administrator access** — install anything.
+- **Choice of OS** — Ubuntu, Debian, or Windows Server 2022.
+- **Public IPv4 address** — extendable with extra IPs.
+- **Web console (VNC / KVM)** — recover the machine even if you lose SSH access.
+- **One-click password reset** from the Dashboard.
+- **Live metrics** for CPU, RAM, disk, and network.
+- **Frankfurt datacenter** — DE-CIX peering, low EU latency.
+
+## Key Takeaways
+
+- A server is an always-on machine in our datacenter — much more capable than running workloads on your laptop.
+- Frankfurt location means **low latency** to most European and major global websites.
+- **VPS** is the right starting point for most workloads; **Dedicated** is for the heaviest, most performance-sensitive ones.
+- Both come with full root access, your choice of OS, and Dashboard tools to manage them.
+
+---
+
+<Columns cols={2}>
+  <Card title="Virtual Private Servers" icon="microchip" color="#025bff" href="/documentation/virtual-private-servers/overview">
+    Overview, plans, and how to buy a VPS
+  </Card>
+  <Card title="Dedicated Servers" icon="database" color="#025bff" href="/documentation/dedicated-servers/overview">
+    Overview, plans, and how to order a dedicated machine
+  </Card>
+</Columns>
