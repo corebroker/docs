@@ -1,0 +1,73 @@
+---
+title: "VPS Backups"
+description: "Automatic weekly snapshots of your entire VPS, kept on our backup server. Restore on demand."
+---
+
+If you enabled **automatic backups** when buying your VPS, we snapshot the full disk **once a week** and store it on our dedicated backup infrastructure.
+
+{/* SCREENSHOT: Dashboard → VPS detail → Backups section (showing latest backup date) */}
+
+## How it works
+
+- Backups run **once every 7 days**, automatically.
+- Each backup is a **full disk snapshot** — everything on your VPS, including the OS, installed software, and data.
+- Snapshots are **deduplicated and compressed** on our backup server, so storage doesn't bloat over time.
+- The **most recent snapshot is always kept**. Older snapshots may be pruned to make room.
+
+<Info>
+  Backups don't affect your VPS performance — the snapshot is taken without freezing your applications.
+</Info>
+
+## Enabling backups
+
+You can enable backups in two ways:
+
+- **At checkout** — tick the **Automatic Backups** option when configuring your VPS.
+- **After purchase** — open the VPS detail page and toggle **Backups: ON**. The first backup runs within \~7 days; if you want one sooner, [contact support](mailto:team@quantumproxies.net).
+
+{/* SCREENSHOT: VPS detail → Backups toggle */}
+
+## Restoring from a backup
+
+Restoring rolls your entire VPS back to the state it was in when the snapshot was taken — **all changes made after that snapshot will be lost**.
+
+<Steps>
+  <Step title="Open your VPS">
+    From **Dashboard → Servers**, click the VPS you want to restore.
+  </Step>
+  <Step title="Pick a snapshot">
+    In the **Backups** section, choose the snapshot you want to restore from.
+
+    {/* SCREENSHOT: VPS detail → Backups list with restore button */}
+  </Step>
+  <Step title="Confirm">
+    The VPS shuts down, the snapshot is restored, and the machine boots back up. It typically takes a few minutes depending on disk size.
+  </Step>
+</Steps>
+
+<Warning>
+  Restoring is destructive — any data created or changed **after** the snapshot date will be permanently lost. Back up critical recent work manually before restoring.
+</Warning>
+
+## Best practices
+
+- **Test your restores** at least once after enabling backups, so you know the flow.
+- **Keep important data off the boot disk** if possible — pushing to git, S3, or another off-server location protects you against the worst-case scenario.
+- **Don't rely on backups for short-term mistakes** — they run weekly, so a file you delete on day 6 may not be in the latest snapshot.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I download a backup?" icon="sparkles">
+    Backups are stored on our internal backup infrastructure and aren't directly downloadable. If you need a copy of your data outside of our system, copy it from inside the VPS (e.g., via `scp` or to cloud storage) before any incident.
+  </Accordion>
+  <Accordion title="How much do backups cost?" icon="sparkles">
+    Weekly backups are an optional add-on at **\$5 / month** per VPS. The add-on is billed alongside your VPS subscription on the same cycle (1, 3, or 6 months).
+  </Accordion>
+  <Accordion title="What happens when I cancel my VPS?" icon="sparkles">
+    Backups are tied to the VPS — once you cancel, the snapshots are eventually removed. If you need to keep them, copy your data out before cancelling.
+  </Accordion>
+  <Accordion title="Can I take a manual backup right now?" icon="sparkles">
+    Not directly from the Dashboard yet — [contact support](mailto:team@quantumproxies.net) and we'll trigger one for you.
+  </Accordion>
+</AccordionGroup>

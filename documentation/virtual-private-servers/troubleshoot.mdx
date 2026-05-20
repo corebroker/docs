@@ -1,0 +1,52 @@
+---
+title: "Troubleshooting VPS"
+description: "Common VPS issues and how to fix them yourself in seconds."
+---
+
+<AccordionGroup>
+  <Accordion title="I can't SSH into my Linux VPS" icon="sparkles">
+    - Double-check the IP address — copy it from the VPS detail page.
+    - Confirm the user is `ubuntu` for Ubuntu images or `debian` for Debian images (not `root`).
+    - If you changed the password recently, make sure you're using the new one.
+    - Still locked out? Open the **Web Console (VNC)** from the Dashboard and log in directly — no SSH needed.
+    - Last resort: **Reset Password** from the Dashboard, then try again.
+  </Accordion>
+  <Accordion title="I can't RDP into my Windows VPS" icon="sparkles">
+    - The username is `Administrator` (case-sensitive on some clients).
+    - On macOS, use **Microsoft Remote Desktop** from the App Store.
+    - If the connection refuses outright, the VM may still be in the final boot stage — wait 30 seconds and retry.
+    - If the password doesn't work, click **Reset Password** in the Dashboard and try again with the new one.
+  </Accordion>
+  <Accordion title="My VPS is unresponsive" icon="sparkles">
+    - Try **Reboot** from the Dashboard first — it's a graceful restart.
+    - If reboot doesn't help, use **Force Stop** then **Start** (this is closer to pulling the power cable).
+    - Open the **Web Console** to see the boot output — it often tells you exactly what's wrong.
+  </Accordion>
+  <Accordion title="The VPS is stuck on 'Building…'" icon="sparkles">
+    Building usually completes in 1–2 minutes. If it's been more than 10 minutes, refresh the page. Our system auto-recovers stuck builds within a few minutes. If it's still stuck after 15 minutes, contact support with your order ID.
+  </Accordion>
+  <Accordion title="High CPU / RAM / Disk usage" icon="sparkles">
+    Open the metrics chart on the VPS detail page to see when the spike started. On Linux, SSH in and run `top`, `htop`, or `iotop` to find the culprit. On Windows, open Task Manager.
+
+    If your workload regularly maxes out the plan, consider upgrading to a larger plan.
+  </Accordion>
+  <Accordion title="I lost the root / Administrator password" icon="sparkles">
+    No worries — click **Reset Password** in the Dashboard. The new password is applied live, no reboot required.
+  </Accordion>
+  <Accordion title="My extra IPs aren't reachable" icon="sparkles">
+    - On **Linux**, extras are configured automatically via cloud-init. Reboot once if they aren't showing up in `ip a`.
+    - On **Windows**, you may need to add them manually under **Network Adapter → IPv4 Properties → Advanced → Add**.
+    - Make sure your firewall (UFW, Windows Defender) isn't blocking them.
+  </Accordion>
+  <Accordion title="I want to reinstall the OS" icon="sparkles">
+    OS reinstall isn't a self-service action yet — [contact support](mailto:team@quantumproxies.net) and we'll trigger a clean reinstall on the same IP within a few minutes.
+  </Accordion>
+</AccordionGroup>
+
+Still stuck? Reach us via [**Discord**](https://discord.gg/Hhg94t6JRG) or [**team@quantumproxies.net**](mailto:team@quantumproxies.net) and include:
+
+- Your VPS plan + region
+- The IP address
+- A short description of what's failing and the exact error (screenshot helps)
+
+We'll get back to you quickly.
