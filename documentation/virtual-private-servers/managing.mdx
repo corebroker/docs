@@ -56,6 +56,34 @@ Forgot your root / Administrator password? Reset it in seconds:
   On Windows, the very first password reset can take up to \~10 seconds because we also normalize the local admin account name. Subsequent resets are instant.
 </Note>
 
+<Tip>
+  If a reset fails, the VPS is almost always still booting or powered off. Make sure it's **started**, wait about a minute, then try again. If it keeps failing, [contact support](mailto:team@quantumproxies.net).
+</Tip>
+
+## Upgrade your plan
+
+Outgrown your current plan? You can move a VPS up to a larger plan (Plank → Broglie → Einstein) in place — without rebuilding the machine or losing data.
+
+<Steps>
+  <Step title="Open the VPS">
+    From **Dashboard → Servers**, click the VPS you want to upgrade. The **Upgrade plan** card shows your current plan.
+
+    {/* SCREENSHOT: VPS detail → "Upgrade plan" card showing current plan */}
+  </Step>
+  <Step title="Click 'Upgrade plan'">
+    A dialog lists the larger plans you can move to, each showing its **RAM, vCPU, disk** and the **prorated price** for the rest of your billing period. Pick one.
+
+    {/* SCREENSHOT: VPS detail → Upgrade plan dialog (plan options with RAM/vCPU/disk + prorated price) */}
+  </Step>
+  <Step title="Confirm">
+    You're charged the **prorated difference immediately**, and the server **reboots briefly (~1–2 min)** to apply the new resources. Your **disk and all data are preserved**.
+  </Step>
+</Steps>
+
+<Note>
+  Upgrades are **VPS-only** (dedicated servers aren't upgraded this way) and move in one direction — you can go up a plan, not down. The **Upgrade plan** button is unavailable while a VPS is still **building**, **suspended**, or has a **cancellation scheduled**.
+</Note>
+
 ## Resource usage
 
 The detail panel shows live metrics for:

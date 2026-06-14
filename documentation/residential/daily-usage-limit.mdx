@@ -1,0 +1,43 @@
+---
+title: "Daily Usage Limit"
+description: "Cap how much residential data your proxies can use per day. When the cap is hit, your proxies pause automatically until the next day — protecting you from burning through a plan faster than you intended."
+---
+
+The **Daily Usage Limit** lets you set a per-day ceiling on how much bandwidth your residential proxies can consume. It's ideal for pacing a plan across a month, sharing a plan across projects, or guarding against a runaway script eating your whole balance overnight.
+
+By default **no limit is set** — your proxies run freely until the plan's bandwidth is used up.
+
+## Setting a limit
+
+<Steps>
+  <Step title="Open Settings">
+    Go to **Dashboard → Settings**. The **Daily Usage Limit** card lists each of your active residential plans.
+
+    {/* SCREENSHOT: Dashboard → Settings → Daily Usage Limit card (showing a plan with "Used today / limit") */}
+  </Step>
+  <Step title="Enter a daily cap">
+    Type the number of **GB per day** (minimum 1 GB) for the plan and click **Save**. The card immediately shows your **used today / limit** for that plan.
+  </Step>
+  <Step title="Raise or remove it any time">
+    Change the number and **Save** again to raise or lower the cap, or click **Remove limit** to lift it entirely.
+  </Step>
+</Steps>
+
+## What happens when the limit is reached
+
+When a plan hits its daily cap, its proxies **pause automatically**. While paused you'll see a message on the card:
+
+> Proxies paused — daily limit reached. They resume at midnight UTC, or raise/remove the limit to resume now.
+
+You have two ways to resume:
+
+- **Wait** — usage resets at **midnight UTC** and proxies resume on their own.
+- **Raise or remove the limit** — proxies resume **immediately**, no waiting.
+
+<Note>
+  The daily counter resets at **00:00 UTC**, not at your local midnight. If you set a cap of, say, 5 GB/day, that 5 GB is measured against the UTC day.
+</Note>
+
+<Info>
+  The Daily Usage Limit is currently available on **Quantum Premium** residential plans. It appears in Settings only for plans that support automatic pausing — other residential products won't show a card.
+</Info>

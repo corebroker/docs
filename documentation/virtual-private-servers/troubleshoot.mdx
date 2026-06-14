@@ -28,10 +28,17 @@ description: "Common VPS issues and how to fix them yourself in seconds."
   <Accordion title="High CPU / RAM / Disk usage" icon="sparkles">
     Open the metrics chart on the VPS detail page to see when the spike started. On Linux, SSH in and run `top`, `htop`, or `iotop` to find the culprit. On Windows, open Task Manager.
 
-    If your workload regularly maxes out the plan, consider upgrading to a larger plan.
+    If your workload regularly maxes out the plan, consider [upgrading to a larger plan](/documentation/virtual-private-servers/managing#upgrade-your-plan) — it's done in place, keeps your data, and only needs a brief reboot.
   </Accordion>
   <Accordion title="I lost the root / Administrator password" icon="sparkles">
     No worries — click **Reset Password** in the Dashboard. The new password is applied live, no reboot required.
+  </Accordion>
+  <Accordion title="The password reset failed" icon="sparkles">
+    A failed reset almost always means we couldn't reach the server to apply the new password — usually because it's still **booting** or **powered off**.
+
+    - Make sure the VPS is **started** (use **Start** from the Dashboard if it's stopped).
+    - Wait about a **minute** for it to finish booting, then click **Reset Password** again.
+    - If it still fails after the machine is clearly up, [contact support](mailto:team@quantumproxies.net) with your VPS IP.
   </Accordion>
   <Accordion title="My extra IPs aren't reachable" icon="sparkles">
     - On **Linux**, extras are configured automatically via cloud-init. Reboot once if they aren't showing up in `ip a`.

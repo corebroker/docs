@@ -33,6 +33,7 @@
                   "documentation/residential/residential-proxies",
                   "documentation/residential/billing",
                   "documentation/residential/generation",
+                  "documentation/residential/daily-usage-limit",
                   "documentation/residential/troubleshoot"
                 ]
               },
@@ -40,8 +41,9 @@
                 "group": "Static Proxies",
                 "icon": "Server",
                 "pages": [
-                  "documentation/static-proxies/datacenter-proxies",
-                  "documentation/static-proxies/isp-proxies"
+                  "documentation/static-proxies/static-proxies",
+                  "documentation/static-proxies/isp-proxies",
+                  "documentation/static-proxies/datacenter-proxies"
                 ]
               },
               "documentation/server-basics",
