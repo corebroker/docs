@@ -1,0 +1,35 @@
+---
+title: "AI assistants (MCP)"
+description: "Use your proxies from Claude, ChatGPT, or Cursor with the hosted MCP server."
+---
+
+Quantum runs a hosted **MCP server** at `/mcp`, authenticated by the same API
+key. Connect Claude, ChatGPT, or Cursor and drive your account in plain English —
+"generate 20 sticky US proxies", or "how much data is left on Quantum Premium?"
+
+## Connect
+
+<CodeGroup>
+```bash Claude Code
+claude mcp add --transport http quantum \
+  https://production.quantumproxies.net/mcp \
+  --header "Authorization: Bearer qp_live_..."
+```
+</CodeGroup>
+
+<Note>
+  **Other clients** — add a remote server with URL
+  `https://production.quantumproxies.net/mcp`, transport **Streamable HTTP**, and
+  header `Authorization: Bearer <key>`.
+</Note>
+
+## Available tools
+
+| Tool | What it does |
+| ---- | ------------ |
+| `list_residential_plans` | List your residential plans and their product IDs. |
+| `generate_residential_proxies` | Generate proxies — product, pool, quantity, sticky, type, time, state, city. |
+| `get_residential_usage` | Live data usage for a plan. |
+| `get_residential_statistics` | Per-day usage for the last 30 days. |
+| `list_static_plans` | List your ISP / datacenter plans with proxy lists. |
+| `get_subscriptions` | Subscription status for your static plans. |

@@ -1,0 +1,88 @@
+---
+title: "Static & billing"
+description: "List your ISP / datacenter plans and read subscription status."
+---
+
+## List static plans
+
+```
+GET /v1/static/{productType}
+```
+
+Lists your static plans — `isp` for ISP proxies, `dc` for datacenter — including
+the ready-to-use proxy lines in `IP:PORT:USER:PASS` format.
+
+<ParamField path="productType" type="string" required>
+  `isp` or `dc`.
+</ParamField>
+<ParamField query="page" type="integer" default="1">
+  Page number.
+</ParamField>
+<ParamField query="limit" type="integer" default="25">
+  Results per page, up to 100.
+</ParamField>
+<ParamField query="productId" type="string">
+  Optional — filter to a single product.
+</ParamField>
+
+<CodeGroup>
+```bash cURL
+curl https://production.quantumproxies.net/v1/static/isp \
+  -H "Authorization: Bearer qp_live_..."
+```
+</CodeGroup>
+
+```json Response
+{
+  "data": {
+    "plans": [
+      {
+        "_id": "isp_ab12",
+        "status": "ACTIVE",
+        "quantity": 5,
+        "proxies": ["1.2.3.4:8080:user:pass"]
+      }
+    ],
+    "total": 1,
+    "currentPage": 1,
+    "totalPages": 1
+  }
+}
+```
+
+## Get subscriptions
+
+```
+GET /v1/subscriptions
+```
+
+Subscription status for your static (ISP / DC) plans, enriched with live billing
+state — status, renewal date, amount, and interval.
+
+<CodeGroup>
+```bash cURL
+curl https://production.quantumproxies.net/v1/subscriptions \
+  -H "Authorization: Bearer qp_live_..."
+```
+</CodeGroup>
+
+```json Response
+{
+  "data": {
+    "subscriptions": [
+      {
+        "plan_id": "isp_ab12",
+        "type": "ISP",
+        "product_name": "US ISP",
+        "status": "ACTIVE",
+        "stripe": {
+          "status": "active",
+          "current_period_end": 1770000000,
+          "amount": 1500,
+          "interval": "month"
+        }
+      }
+    ]
+  }
+}
+```

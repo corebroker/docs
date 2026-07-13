@@ -1,0 +1,86 @@
+---
+title: "Introduction"
+description: "Generate proxies, read usage, and manage your plans from code or any AI assistant."
+---
+
+The Quantum Proxies API lets you generate proxies, read live usage, and manage
+your plans straight from your code — or from any AI assistant over MCP. One key
+connects your account to everything.
+
+<CardGroup cols={2}>
+  <Card title="REST API" icon="code">
+    JSON over HTTPS. Six read-only endpoints plus proxy generation.
+  </Card>
+  <Card title="MCP server" icon="robot">
+    Connect Claude, ChatGPT, or Cursor and drive your account in plain English.
+  </Card>
+</CardGroup>
+
+## Base URL
+
+All requests go to:
+
+```
+https://production.quantumproxies.net
+```
+
+## Authentication
+
+Every request is authenticated with your API key in the `Authorization` header.
+The key scopes every response to your own account — there is never an account id
+in the URL.
+
+```bash
+Authorization: Bearer qp_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+<Note>
+  **Keys are issued by our team.** Contact support to request one — we'll hand it
+  to you directly. The full key is shown only once at creation, so store it
+  somewhere safe. You can see your active keys (masked) any time under
+  **Developers** in the dashboard.
+</Note>
+
+## Rate limits
+
+Requests are throttled to **120 per minute, per key**. Every response includes
+`RateLimit-Limit`, `RateLimit-Remaining`, and `RateLimit-Reset` headers so you
+can pace your calls. Exceeding the limit returns `429`.
+
+## Response format
+
+Every response is a JSON envelope. Success carries your payload in `data`;
+errors carry a human-readable `message`.
+
+<CodeGroup>
+```json Success
+{
+  "statusCode": 200,
+  "data": { },
+  "message": "Residential plans retrieved",
+  "success": true,
+  "error": null
+}
+```
+
+```json Error
+{
+  "statusCode": 401,
+  "success": false,
+  "message": "Invalid or revoked API key",
+  "meta": {}
+}
+```
+</CodeGroup>
+
+## Status codes
+
+| Code | Meaning |
+| ---- | ------- |
+| `200` | OK — request succeeded. |
+| `400` | Bad request — a parameter is missing or invalid (e.g. an unsupported session time, or quantity above 10,000). |
+| `401` | Missing, invalid, expired, or revoked API key. |
+| `403` | The account tied to this key isn't allowed to use the API. |
+| `404` | Not found — you don't have a plan for the given product. |
+| `429` | Rate limit exceeded — slow down and retry after `RateLimit-Reset`. |
+| `500` | Something went wrong on our side. Safe to retry. |

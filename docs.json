@@ -76,7 +76,30 @@
       },
       {
         "tab": "API reference",
-        "groups": []
+        "groups": [
+          {
+            "group": "Get started",
+            "icon": "Book",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "icon": "Code",
+            "pages": [
+              "api-reference/residential",
+              "api-reference/static"
+            ]
+          },
+          {
+            "group": "AI assistants",
+            "icon": "Robot",
+            "pages": [
+              "api-reference/mcp"
+            ]
+          }
+        ]
       }
     ],
     "global": {}

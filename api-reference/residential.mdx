@@ -1,0 +1,164 @@
+---
+title: "Residential"
+description: "List plans, generate proxies, and read usage for your residential products."
+---
+
+All residential endpoints are scoped to your account by the API key — pass your
+key in the `Authorization` header on every request.
+
+## List residential plans
+
+```
+GET /v1/residential
+```
+
+Lists the residential plans on your account. Start here — it returns each plan's
+`product_id`, which the other residential endpoints require.
+
+<CodeGroup>
+```bash cURL
+curl https://production.quantumproxies.net/v1/residential \
+  -H "Authorization: Bearer qp_live_..."
+```
+</CodeGroup>
+
+<ResponseField name="plans" type="array">
+  One entry per residential plan, each with `product_id`, `product_name`,
+  `data_gb` (total allocation), and the proxy `username`.
+</ResponseField>
+
+```json Response
+{
+  "data": {
+    "plans": [
+      {
+        "product_id": "residential_product_35bcc67b",
+        "product_name": "Quantum Premium",
+        "data_gb": 50,
+        "username": "mpuWcFwwk5_Quantum.a1b2"
+      }
+    ]
+  }
+}
+```
+
+## Generate proxies
+
+```
+GET /v1/residential/{product_id}/proxies
+```
+
+Generates residential proxy connection strings for one plan. Sticky sessions
+hold the same IP for the session's lifetime; rotating gives a fresh IP per
+request.
+
+<ParamField query="sticky" type="boolean" required>
+  `true` for a sticky session (same IP), `false` for rotating.
+</ParamField>
+<ParamField query="pool" type="string" required>
+  A country name (e.g. `United States`), or `Worldwide` / `Europe`.
+</ParamField>
+<ParamField query="quantity" type="integer" required>
+  How many proxy lines to generate. Between 1 and 10,000.
+</ParamField>
+<ParamField query="type" type="string" default="http">
+  `http` or `socks5`.
+</ParamField>
+<ParamField query="time" type="string" default="60">
+  Sticky session lifetime in minutes. Allowed values depend on the product (see
+  below).
+</ParamField>
+<ParamField query="state" type="string">
+  Optional state / subdivision targeting (single-country pools only).
+</ParamField>
+<ParamField query="city" type="string">
+  Optional city targeting (single-country pools only).
+</ParamField>
+
+<Note>
+  **Session lifetimes are per product.** Values outside the plan's list return `400`.
+
+  | Product | Allowed `time` (minutes) |
+  | ------- | ------------------------ |
+  | Quantum Premium | `30`, `60`, `120`, `240` |
+  | Private Residential | `30`, `60`, `120`, `720` |
+  | Quantum Mobile | `30`, `60`, `120` |
+  | Schro Residential | `30`, `60`, `120`, `720`, `1440` |
+</Note>
+
+<CodeGroup>
+```bash cURL
+curl "https://production.quantumproxies.net/v1/residential/residential_product_35bcc67b/proxies?sticky=true&pool=United%20States&quantity=3&time=60" \
+  -H "Authorization: Bearer qp_live_..."
+```
+</CodeGroup>
+
+```json Response
+{
+  "data": {
+    "proxies": [
+      "premium.quantumproxies.net:65534:USER-country-US-session-482910-sessionttl-60:PASS",
+      "premium.quantumproxies.net:65534:USER-country-US-session-771305-sessionttl-60:PASS"
+    ],
+    "count": 3
+  }
+}
+```
+
+## Get usage
+
+```
+GET /v1/residential/{product_id}/usage
+```
+
+Returns live data usage for one plan — total allocation and how much you've
+consumed, in GB, plus the plan's proxy credentials.
+
+<CodeGroup>
+```bash cURL
+curl https://production.quantumproxies.net/v1/residential/residential_product_35bcc67b/usage \
+  -H "Authorization: Bearer qp_live_..."
+```
+</CodeGroup>
+
+<ResponseField name="total_data" type="number">Total data allocation, in GB.</ResponseField>
+<ResponseField name="used_data" type="number">Data consumed so far, in GB.</ResponseField>
+
+```json Response
+{
+  "data": {
+    "total_data": 50,
+    "used_data": 12.4,
+    "username": "mpuWcFwwk5_Quantum.a1b2",
+    "product": "residential_product_35bcc67b"
+  }
+}
+```
+
+## Get statistics
+
+```
+GET /v1/residential/{product_id}/statistics
+```
+
+Per-day data usage for the last 30 days, in **MB**, keyed by date.
+
+<CodeGroup>
+```bash cURL
+curl https://production.quantumproxies.net/v1/residential/residential_product_35bcc67b/statistics \
+  -H "Authorization: Bearer qp_live_..."
+```
+</CodeGroup>
+
+```json Response
+{
+  "data": {
+    "unit": "MB",
+    "days": {
+      "2026-07-10": 840.25,
+      "2026-07-11": 1203.90,
+      "2026-07-12": 412.00
+    }
+  }
+}
+```
